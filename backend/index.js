@@ -10,5 +10,4 @@ const port = process.env.PORT
 app.listen(port, ()=>{
     connectDb()
     console.log(`Server is listing at ${port}`);
-    
 })
