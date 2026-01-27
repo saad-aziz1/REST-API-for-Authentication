@@ -1,6 +1,6 @@
 import generateToken from "../config/token.js"
 import User from "../models/user.model.js"
-import bcrypt from 'bcryptjs'
+import bcrypt, { truncates } from 'bcryptjs'
 
 export const signUp = async (req, res) => {
     try {
@@ -93,3 +93,16 @@ export const logIn = async (req,res) => {
         
     }
 } 
+
+export const logOut = async (req,res) => {
+   try {
+    res.clearCookie('token');
+   return res.status(200).json({message:"Logout successfully"})
+   } catch (error) {
+    console.log(error)
+      return res.status(500).json({
+      message:"Internal Server Error",
+      error:error.message
+      })
+   }
+}
