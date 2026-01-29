@@ -4,6 +4,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SignUp from './SignUp.jsx'
 import LogIn from './LogIn.jsx'
+import UserContext from './Context/UserContext.jsx'
 
 const myRouters = createBrowserRouter([
   {
@@ -22,8 +23,7 @@ const myRouters = createBrowserRouter([
 
 
 createRoot(document.getElementById('root')).render(
-  
+  <UserContext>
   <RouterProvider router={myRouters} />
-    
-  
-)
+  </UserContext>
+  )
