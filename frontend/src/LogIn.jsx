@@ -1,8 +1,9 @@
 import { useContext,useState } from "react";
 import { dataContext } from "./Context/UserContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-
+// bad me keep me login awr forget password wali functional dalna hy(giminai)
 const LogIn = () => {
   // Common styling
   const inputStyle = "mt-1 block w-full bg-[#2d2d2d] border border-gray-600 rounded-md shadow-sm p-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00ffcc] focus:border-transparent transition-all";
@@ -11,6 +12,7 @@ const LogIn = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const handleLogin = async (e)=>{
       e.preventDefault()
@@ -83,7 +85,7 @@ const LogIn = () => {
             <button type="submit" className="w-full py-3.5 bg-[#00ffcc] text-[#212121] font-black rounded-xl hover:bg-[#00e6b8] transition-all transform hover:scale-[1.01] active:scale-95 shadow-[0_10px_20px_rgba(0,255,204,0.15)] cursor-pointer mt-4">
               SIGN IN
             </button>
-
+              <h1 className="text-center">Create a new Account? <span className="text-[#7dfccd] font-semibold cursor-pointer" onClick={()=>navigate("/signup")}>SignUp</span></h1>
           </form>
 
         </div>
